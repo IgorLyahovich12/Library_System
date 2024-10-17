@@ -3,7 +3,6 @@ package ua.edu.kneu.library_system.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * The Reader entity represents a library reader.

@@ -3,8 +3,11 @@ package ua.edu.kneu.library_system.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
-import java.util.UUID;
 
+/**
+ * The LoanRecord entity represents a record of a book loan transaction.
+ * It stores information about the reader, the book copy borrowed, and the dates of the loan and return.
+ */
 @Setter
 @Getter
 @Builder
@@ -20,16 +23,15 @@ public final class LoanRecord {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "readerId")
-    private Reader reader; // A reader who borrows a book
-
+    private Reader reader; // The reader who borrows a book
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "copyId")
-    private BookCopy bookCopy; // A copy of the book that is borrowed
+    private BookCopy bookCopy; // The copy of the book that is borrowed
 
     @Column(name = "loanDate")
-    private LocalDate loanDate; // Book loan date
+    private LocalDate loanDate; // The date when the book was borrowed
 
     @Column(name = "returnDate")
-    private LocalDate returnDate; // Book return date
+    private LocalDate returnDate; // The date when the book is expected to be returned
 }

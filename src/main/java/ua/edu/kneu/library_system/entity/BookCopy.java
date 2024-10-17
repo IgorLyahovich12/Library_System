@@ -3,6 +3,10 @@ package ua.edu.kneu.library_system.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * The BookCopy entity represents a specific copy of a book in the library.
+ * It stores information about the book to which it belongs and its availability status.
+ */
 @Setter
 @Getter
 @Builder
@@ -21,5 +25,5 @@ public final class BookCopy {
     private Book book; // Book to which this copy belongs
 
     @Column(name = "availabilityStatus")
-    private String availabilityStatus; // Copy availability status (for example: "Available", "Checked Out", "In Reading Room")
+    private String availabilityStatus; // Copy availability status (e.g., "Available", "Checked Out", "In Reading Room")
 }

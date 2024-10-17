@@ -1,9 +1,13 @@
 package ua.edu.kneu.library_system.entity;
+
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Set;
-import java.util.UUID;
 
+/**
+ * The Book entity represents a book in the library.
+ * It stores information about the book's title, author, ISBN, and the collection of its copies.
+ */
 @Setter
 @Getter
 @Builder
@@ -15,7 +19,7 @@ public final class Book {
 
     @Id
     @Column(name = "bookId")
-    private Long  bookId; // The unique identifier of the book
+    private Long bookId; // The unique identifier of the book
 
     @Column(name = "title", nullable = false)
     private String title; // Title of the book
@@ -29,4 +33,3 @@ public final class Book {
     @OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<BookCopy> bookCopies; // Collection of book copies
 }
-
