@@ -1,6 +1,8 @@
 package ua.edu.kneu.library_system.entity;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
 import lombok.*;
 
 /**
@@ -10,22 +12,21 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "librarian")
 public final class Librarian {
 
     @Id
-    @Column(name = "librarianId")
+    @Column("librarian_id")
     private Long librarianId; // Unique identifier of the librarian
 
-    @Column(name = "firstName", nullable = false)
+    @Column("first_name")
     private String firstName; // First name of the librarian
 
-    @Column(name = "lastName", nullable = false)
+    @Column("last_name")
     private String lastName; // Last name of the librarian
 
-    @Column(name = "email", unique = true)
+    @Column("email")
     private String email; // Librarian's email address, used for contact
 }

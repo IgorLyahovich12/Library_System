@@ -1,7 +1,9 @@
 package ua.edu.kneu.library_system.entity;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 import lombok.*;
+
 import java.util.Set;
 
 /**
@@ -11,24 +13,16 @@ import java.util.Set;
 @Setter
 @Getter
 @Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "reader")
+@Table(name = "reader") // R2DBC annotation
 public final class Reader {
     @Id
-    @Column(name = "readerId")
     private Long readerId; // Unique identifier of the reader
 
-    @Column(name = "firstName", nullable = false)
     private String firstName; // Name of the reader
-
-    @Column(name = "lastName", nullable = false)
     private String lastName; // Last name of the reader
-
-    @Column(name = "email", unique = true)
     private String email; // Email for communication with the reader
-
-    @OneToMany(mappedBy = "reader", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<LoanRecord> loanRecords; // Loan records made by this reader
 }
+

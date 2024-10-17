@@ -1,6 +1,8 @@
 package ua.edu.kneu.library_system.entity;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
 import lombok.*;
 
 /**
@@ -10,20 +12,18 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "bookCopy")
+@Table(name = "book_copy")
 public final class BookCopy {
 
     @Id
-    @Column(name = "copyId")
+    @Column("copy_id")
     private Long copyId; // Unique identifier of the copy of the book
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "bookId")
-    private Book book; // Book to which this copy belongs
+    @Column("book_id")
+    private Long bookId; // The ID of the book to which this copy belongs
 
-    @Column(name = "availabilityStatus")
+    @Column("availability_status")
     private String availabilityStatus; // Copy availability status (e.g., "Available", "Checked Out", "In Reading Room")
 }

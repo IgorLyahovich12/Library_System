@@ -1,6 +1,8 @@
 package ua.edu.kneu.library_system.entity;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
 import lombok.*;
 import java.util.Set;
 
@@ -11,25 +13,22 @@ import java.util.Set;
 @Setter
 @Getter
 @Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "book")
 public final class Book {
 
     @Id
-    @Column(name = "bookId")
+    @Column("book_id")
     private Long bookId; // The unique identifier of the book
 
-    @Column(name = "title", nullable = false)
+    @Column("title")
     private String title; // Title of the book
 
-    @Column(name = "author", nullable = false)
+    @Column("author")
     private String author; // The author of the book
 
-    @Column(name = "isbn", unique = true)
+    @Column("isbn")
     private String isbn; // International Standard Book Number (ISBN)
 
-    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<BookCopy> bookCopies; // Collection of book copies
 }
