@@ -28,4 +28,3 @@ public class MainController {
         return messageService.addOne(message);
     }
 }
-

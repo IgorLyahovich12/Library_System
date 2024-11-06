@@ -14,15 +14,14 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table("librarian") // Specify the name of the table in the database
 public final class Librarian {
 
     @Id
-    private Long librarianId; // Unique identifier of the librarian
+    private Long librarian_id; // Unique identifier of the librarian
 
-    private String firstName; // First name of the librarian
+    private String first_name; // First name of the librarian
 
-    private String lastName; // Last name of the librarian
+    private String last_name; // Last name of the librarian
 
     private String email; // Librarian's email address, used for contact
 }

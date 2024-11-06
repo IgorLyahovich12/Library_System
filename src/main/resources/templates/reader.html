@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System - Readers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h1>List of Readers</h1>
+    <ul id="reader-list" class="list-group">
+        <!-- Список читачів буде додаватись сюди -->
+    </ul>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const readerList = document.getElementById('reader-list');
+
+        // Завантаження всіх читачів
+        fetch('/readers')
+            .then(response => response.json())
+            .then(readers => {
+                readers.forEach(reader => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item');
+                    li.textContent = `${reader.first_name} ${reader.last_name} (Email: ${reader.email})`;
+                    readerList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading readers:', error);
+            });
+    });
+</script>
+
+</body>
+</html>

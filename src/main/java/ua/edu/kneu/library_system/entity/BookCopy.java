@@ -15,13 +15,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table("book_copy") // Specify the name of the table in the database
 public final class BookCopy {
 
     @Id
-    private Long copyId; // Unique identifier of the copy of the book
+    private Long copy_id; // Unique identifier of the copy of the book
 
-    private Long bookId; // The ID of the book to which this copy belongs
+    private Long book_id; // The ID of the book to which this copy belongs
 
-    private String availabilityStatus; // Copy availability status (e.g., "Available", "Checked Out", "In Reading Room")
+    private String availability_status; // Copy availability status (e.g., "Available", "Checked Out", "In Reading Room")
 }

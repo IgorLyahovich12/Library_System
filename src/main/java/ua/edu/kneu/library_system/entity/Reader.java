@@ -15,13 +15,12 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table("reader") // Specify the name of the table in the database
 public final class Reader {
     @Id
-    private Long readerId; // Unique identifier of the reader
+    private Long reader_id; // Unique identifier of the reader
 
-    private String firstName; // Name of the reader
-    private String lastName; // Last name of the reader
+    private String first_name; // Name of the reader
+    private String last_name; // Last name of the reader
     private String email; // Email for communication with the reader
-    private Set<LoanRecord> loanRecords; // Loan records made by this reader
+    private Set<LoanRecord> loan_records; // Loan records made by this reader
 }

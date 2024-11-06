@@ -17,17 +17,16 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table("loanRecord") // Specify the name of the table in the database
 public final class LoanRecord {
 
     @Id
-    private Long loanId; // Unique ID of the loan record
+    private Long loan_id; // Unique ID of the loan record
 
-    private Long readerId; // Store the ID of the reader (instead of a Reader object)
+    private Long reader_id; // Store the ID of the reader (instead of a Reader object)
 
-    private Long copyId; // Store the ID of the book copy (instead of a BookCopy object)
+    private Long copy_id; // Store the ID of the book copy (instead of a BookCopy object)
 
-    private LocalDate loanDate; // The date when the book was borrowed
+    private LocalDate loan_date; // The date when the book was borrowed
 
-    private LocalDate returnDate; // The date when the book is expected to be returned
+    private LocalDate return_date; // The date when the book is expected to be returned
 }

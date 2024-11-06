@@ -13,11 +13,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table("book") // Specify the name of the table in the database
 public final class Book {
 
     @Id
-    private Long bookId; // The unique identifier of the book
+    private Long book_id; // The unique identifier of the book
 
     private String title; // Title of the book
 
